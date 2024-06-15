@@ -24,12 +24,12 @@ const userSchema =new Schema({
 });
 
 userSchema.pre("save",function(next){
-    const user=this
+    const user=this;
     console.log("user passwor 1",user.password)
     bcrypt.hash(user.password,10,(err,hash)=>{
         user.password=hash;
         console.log("user password 2" ,user.password)
-        next()
+        next();
     })
 })
 
